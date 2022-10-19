@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Enter Contest</title>
+    
+    <style>
+      body {margin:0px; padding:0px; background-color:black; animation-name:screenic; animation-duration:6s; animation-iteration-count:infinite;
+animation-direction:alternate;}
+      .ap {width:100%; Padding:20vw; font-size:5vw; color:purple; background-color:black;}
+      .pap {font-size:4vw;}
+      
+      @keyframes screenic {
+        
+       33% {background-image: url(https://www.stockvault.net/data/2009/09/06/110360/preview16.jpg);}
+       66% {background-image: url(https://www.stockvault.net/data/2021/08/26/287848/preview16.jpg);}
+       99% {background-image: url(https://www.stockvault.net/data/2013/02/09/141714/preview16.jpg);}
+      
+      }
+    </style>
+  </head>
+  
+  <body>
+    <h1 class="ap">Musical ART Tournament</h1>
+    <p class="pap"><strong>Sign Up For The Musical Art Tournament</strong></p>
+    <ol class="pap">
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+    
+  <div id="smart-button-container">
+      <div style="text-align: center;">
+        <div id="paypal-button-container"></div>
+      </div>
+    </div>
+  <script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+  <script>
+    function initPayPalButton() {
+      paypal.Buttons({
+        style: {
+          shape: 'rect',
+          color: 'gold',
+          layout: 'vertical',
+          label: 'paypal',
+          
+        },
+
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{"description":"Submit Your Song/Enter Contest","amount":{"currency_code":"USD","value":3.25,"breakdown":{"item_total":{"currency_code":"USD","value":3},"shipping":{"currency_code":"USD","value":0},"tax_total":{"currency_code":"USD","value":0.25}}}}]
+          });
+        },
+
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(orderData) {
+            
+            // Full available details
+            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+            // Show a success message within this page, e.g.
+            const element = document.getElementById('paypal-button-container');
+            element.innerHTML = '';
+            element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+            // Or go to another URL:  actions.redirect('thank_you.html');
+            
+          });
+        },
+
+        onError: function(err) {
+          console.log(err);
+        }
+      }).render('#paypal-button-container');
+    }
+    initPayPalButton();
+  </script>
+  </body>
+</html>
