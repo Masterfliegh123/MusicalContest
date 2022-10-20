@@ -7,7 +7,7 @@
       body {margin:0px; padding:0px; background-color:black; animation-name:screenic; animation-duration:6s; animation-iteration-count:infinite;
 animation-direction:alternate; background-size:cover; background-repeat:no-repeat;}
       .ap {width:100%; Padding:20vw; font-size:5vw; color:purple; background-color:black; border-top: purple 10px solid; border-bottom: purple 10px solid;}
-      .pap {font-size:4vw; margin:3vw; color:gold;}
+      .pap {font-size:4vw; margin:3vw; color:purple;}
       
       @keyframes screenic {
         
@@ -23,10 +23,11 @@ animation-direction:alternate; background-size:cover; background-repeat:no-repea
     <h1 class="ap">Musical ART Tournament</h1>
     <p class="pap"><strong>Sign Up For The Musical Art Tournament</strong></p>
     <ol class="pap">
-      <li></li>
-      <li></li>
-      <li></li>
+      <li>Fill Out The Form</li>
+      <li>Pay The 3 Dollar Fee</li>
+      <li>The Winner Will Be Announced Via Email And Will Recieve A Winning Certificate</li>
     </ol>
+    <p class="pap"><strong>1 out of 100 will take victory!!!</strong></p>
     
   <div id="smart-button-container">
       <div style="text-align: center;">
@@ -63,7 +64,7 @@ animation-direction:alternate; background-size:cover; background-repeat:no-repea
             element.innerHTML = '<h3>Thank you for your payment!</h3>';
 
             // Or go to another URL:  actions.redirect('thank_you.html');
-            
+            actions.redirect('form_juan.html');
           });
         },
 
